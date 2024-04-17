@@ -74,19 +74,15 @@ namespace ApplicationRegistration
                     string fullName = GetStudentFullName(selectedRowID, login);
                     List<string> educationAreas = GetEducationAreas(selectedRowID, login);
 
-                    // Measure string width
                     SizeF textSize = g.MeasureString("ЗАЯВЛЕНИЕ", new Font("Arial", 14, FontStyle.Bold));
-                    int headerX = (int)((ev.PageBounds.Width - textSize.Width) / 2); // Calculate X position for centering
+                    int headerX = (int)((ev.PageBounds.Width - textSize.Width) / 2);
 
-                    // Draw document header
                     g.DrawString("ЗАЯВЛЕНИЕ", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, headerX, startY);
                     startY += offset * 2;
 
-                    // Draw student's full name
                     g.DrawString($"Я, {fullName}, подал документы в ВУЗ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, startX, startY);
                     startY += offset * 2;
 
-                    // Draw education areas
                     g.DrawString("На направления подготовки:", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, startX, startY);
                     startY += offset;
                     foreach (string area in educationAreas)
@@ -95,7 +91,6 @@ namespace ApplicationRegistration
                         startY += offset;
                     }
 
-                    // Draw date
                     startY += offset * 2;
                     g.DrawString(DateTime.Now.ToString(), new Font("Arial", 10, FontStyle.Bold), Brushes.Black, startX, startY);
                 };
