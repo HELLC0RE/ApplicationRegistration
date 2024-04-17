@@ -178,7 +178,9 @@ namespace ApplicationRegistration
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Stats stats = new Stats();
+            stats.Show();
+            this.Close();
         }
     }
 }
